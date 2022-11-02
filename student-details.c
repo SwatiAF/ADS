@@ -8,6 +8,8 @@ sort the list
 
 create another list for failed students -- > check the list for failing students and create a 
 new list using a function
+
+let the passing marks be 60
 */
 
 #include<stdio.h>
@@ -39,20 +41,20 @@ void insertAtEnd() {
         scanf("%d", &usn);
         ptr->usn = usn;
         
-            printf("Enter name: ");
-            scanf("%s", name[i]);
-            ptr->name[i] = name[i];
+        printf("Enter name: ");
+        scanf("%s", ptr->name);
+        ptr->name[20] = name;
             
         for(i = 0; i < 10; i++) {
-            printf("Enter subject: ");
-            scanf("%s", subject[i]);
-            ptr->subject[i] = subject[i];
+            printf("Enter subject %d: ", i);
+            scanf("%s", ptr->subject[i]);
+            ptr->subject[i] = subject;
         }
         
         for(j = 0; j < 10; j++) {
-            printf("Enter marks: ");
-            scanf("%d", &marks[j]);
-            ptr->marks[j] = marks[j];
+            printf("Enter marks for subject %d: ", i);
+            scanf("%d", ptr->marks[j]);
+            ptr->marks[j] = marks;
         }
         
         if(head == NULL) {
@@ -69,8 +71,6 @@ void insertAtEnd() {
             ptr->next = NULL;
             printf("Node inserted\n");
         }
-        
-        getchar();
     }
 }
 
@@ -99,11 +99,20 @@ void display() {
     }
 }
 
+void sort_list() {
+    /*sort the list based on total marks*/
+    
+}
+
+void failed_list() {
+    /*check for failed students where total marks < 60 and create a list for the failed students*/
+}
+
 void main() {
     int choice;
     while(1) {
         printf("Insertion Operations: \n");
-        printf("1.Insert at end\n 2.Display\n 3.Exit\n");
+        printf("1.Insert at end\n 2.Display\n 3.Sort based on Total Marks\n 4.Check & create for failed\n 5.Exit\n");
         printf("Enter choice: ");
         scanf("%d", &choice);
         
@@ -112,7 +121,11 @@ void main() {
                 break;
             case 2: display();
                 break;
-            case 3: exit(1);
+            case 3: sort_list();
+                break;
+            case 4: failed_list();
+                break;
+            case 5: exit(1);
                 break;
             default: printf("Invalid Choice");
         }
