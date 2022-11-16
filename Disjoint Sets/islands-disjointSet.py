@@ -100,3 +100,5 @@ a = [[1, 1, 0, 0, 0],
 	[1, 0, 1, 0, 1]]
 print("Number of Islands is:", countIslands(a))
 
+#Output: the number of islands is: 5
+
